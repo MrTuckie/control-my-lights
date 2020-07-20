@@ -43,24 +43,31 @@ def index():
       else:
           flash(f"A lâmpada está desligada, meu cachorrinho")
       return render_template("index.html", messages=messages)
-    
     except:
-      flash(f"Erro. Provavelmente a lâmpada está desconectada.")
+      flash(f"Achamos um erro... Provavelmente a lâmpada está desconectada.")
       return render_template("index.html", messages=messages)
 
 @app.route("/on", methods=["POST"])
 def on():
+  try:
     particle.call_function(device['id'], 'pisca', 1)
     flash('PISCOU :)')
     return redirect(url_for('index'))
+  except:
+      flash(f"Um erro foi encontrado. O aparelho está desconectado.")
+      return redirect(url_for('index'))
+    
 
   
 @app.route("/off", methods=["POST"])
 def off():
+  try:
     particle.call_function(device['id'], 'pisca', 0)
     flash('DESLIGOU :(')
     return redirect(url_for('index'))
-  
+  except:
+    flash(f"Um erro foi detectado. O aparelho está desconectado.")
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
