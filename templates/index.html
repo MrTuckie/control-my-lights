@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title>Control my lights!</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='assets/main.css') }}"
+    />
+  </head>
+  <body>
+    <div id="app" class="container">
+      <h1>Control my lights!</h1>
+      <h2>Bom dia, meus consagrados.</h2>
+      <h2>Controle as luzes do meu quarto.</h2>
+      {% for flash_message in get_flashed_messages() %}
+      <div class="flash">{{ flash_message }}</div>
+      {% endfor %}
+      <form method="post" action="/on" class="main-form" id="on"></form>
+      <form method="post" action="/off" class="main-form" id="off"></form>
+      <form method="get" action="/" class="main-form" id="status"></form>
+      <button form="on" class="compliment-button">
+        ON
+      </button>
+      <button form="off" class="compliment-button">
+        OFF
+      </button>
+      <button form="status" class="compliment-button">
+        Status
+      </button>
+    </div>
+  </body>
+</html>
