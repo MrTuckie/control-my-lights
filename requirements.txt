@@ -1,0 +1,13 @@
+certifi==2020.6.20
+chardet==3.0.4
+Click==7.0
+Flask==1.1.1
+idna==2.10
+itsdangerous==1.1.0
+Jinja2==2.10.3
+MarkupSafe==1.1.1
+pyparticle @ git+https://github.com/hejp89/pyparticle.git@c7a39a25195758cb6ec6d552ca94254ddb1459db
+python-dotenv==0.10.3
+requests==2.24.0
+urllib3==1.25.9
+Werkzeug==0.16.0
